@@ -42,7 +42,6 @@ namespace HDF.DeskBand
             this.txt_Key.Name = "txt_Key";
             this.txt_Key.Size = new System.Drawing.Size(194, 40);
             this.txt_Key.TabIndex = 0;
-            this.txt_Key.Text = "1231\r\n1231\r\n546\r\n65";
             this.txt_Key.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainControl_KeyUp);
             // 
             // MainControl
