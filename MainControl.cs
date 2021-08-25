@@ -1,6 +1,7 @@
 ﻿using Baidu;
 using CSDeskBand;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -131,6 +132,28 @@ namespace HDF.DeskBand
                             this.Focus();
                             txt_Key.Text = "";
                             txt_Key.Focus();
+                        }
+                    }
+                    else if (key == Keys.B)
+                    {
+                        if (Clipboard.ContainsText())
+                        {
+                            var text = Clipboard.GetText();
+                            text = text.Trim();
+                            if (string.IsNullOrEmpty(text))
+                                return;
+                            Process.Start("https://www.baidu.com/s?ie=UTF-8&wd=" + text);
+                        }
+                    }
+                    else if (key == Keys.G)
+                    {
+                        if (Clipboard.ContainsText())
+                        {
+                            var text = Clipboard.GetText();
+                            text = text.Trim();
+                            if (string.IsNullOrEmpty(text))
+                                return;
+                            Process.Start("http://google.com/search?q=" + text);
                         }
                     }
                 }
