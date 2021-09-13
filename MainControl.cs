@@ -86,6 +86,8 @@ namespace HDF.DeskBand
                 text = text.Trim();
                 if (string.IsNullOrEmpty(text))
                     return;
+                if (text.Length > 1000)
+                    text = text.Substring(0, 1000);
                 var res = BaiduTranslate.Translate(text);
                 if (res != null && res.error_code == null)
                 {

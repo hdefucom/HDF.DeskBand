@@ -82,15 +82,23 @@ namespace Baidu
             request.ContentType = "text/html;charset=UTF-8";
             request.UserAgent = null;
             request.Timeout = 6000;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            using (Stream myResponseStream = response.GetResponseStream())
+            try
             {
-                StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
-                string retString = myStreamReader.ReadToEnd();
-                myStreamReader.Close();
-                myResponseStream.Close();
-                var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<BaiduTranslateApiResult>(retString);
-                return obj;
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                using (Stream myResponseStream = response.GetResponseStream())
+                {
+                    StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+                    string retString = myStreamReader.ReadToEnd();
+                    myStreamReader.Close();
+                    myResponseStream.Close();
+                    var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<BaiduTranslateApiResult>(retString);
+                    return obj;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex.Message);
+                return null;
             }
         }
 
@@ -122,15 +130,23 @@ namespace Baidu
             request.ContentType = "text/html;charset=UTF-8";
             request.UserAgent = null;
             request.Timeout = 6000;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            using (Stream myResponseStream = response.GetResponseStream())
+            try
             {
-                StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
-                string retString = myStreamReader.ReadToEnd();
-                myStreamReader.Close();
-                myResponseStream.Close();
-                var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<BaiduLanguageApiResult>(retString);
-                return obj;
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                using (Stream myResponseStream = response.GetResponseStream())
+                {
+                    StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+                    string retString = myStreamReader.ReadToEnd();
+                    myStreamReader.Close();
+                    myResponseStream.Close();
+                    var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<BaiduLanguageApiResult>(retString);
+                    return obj;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex.Message);
+                return null;
             }
 
         }
