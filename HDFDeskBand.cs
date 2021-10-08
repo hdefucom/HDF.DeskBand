@@ -33,7 +33,7 @@ namespace HDF.DeskBand
 
         public HDFDeskBand()
         {
-            Console.SetOut(new CustomTextWriter());
+            //Console.SetOut(new CustomTextWriter());
             var form = new MainControl() { TaskbarEdge = TaskbarInfo.Edge };
 
             TaskbarInfo.TaskbarEdgeChanged += (sender, e) => form.TaskbarEdge = e.Edge;
